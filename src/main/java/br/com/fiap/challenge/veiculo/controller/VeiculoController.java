@@ -84,8 +84,8 @@ public class VeiculoController {
         return ResponseEntity.status(HttpStatus.OK).body(veiculoService.salvarVeiculo(veiculoModel));
     }
 
-    @PatchMapping("/{veiculoId}")
-    public ResponseEntity<Object> comprarVeiculo(@PathVariable("veiculoId") UUID veiculoId){
+    @PatchMapping("/{veiculoId}/vender")
+    public ResponseEntity<Object> venderVeiculo(@PathVariable("veiculoId") UUID veiculoId){
         var veiculoOptional = veiculoService.buscarVeiculoPorId(veiculoId);
 
         if(veiculoOptional.isEmpty()){
@@ -93,8 +93,9 @@ public class VeiculoController {
         }
 
         if(veiculoOptional.get().getVeiculoStatus() != VeiculoStatus.DISPONIVEL){
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Veículo já vendido.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Esse veículo não está disponível.");
         }
+
         var veiculoModel = veiculoOptional.get();
 
         veiculoModel.setVeiculoStatus(VeiculoStatus.VENDIDO);
@@ -102,7 +103,7 @@ public class VeiculoController {
 
         veiculoService.salvarVeiculo(veiculoModel);
 
-        return ResponseEntity.status(HttpStatus.OK).body("Veículo vendido com sucesso.");
+        return ResponseEntity.status(HttpStatus.OK).body("Veículo atualizado para vendido com sucesso.");
     }
 
     @DeleteMapping("/{veiculoId}")
