@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:7080/realms/fiap
+          jwk-set-uri: http://localhost:7080/realms/fiap/protocol/openid-connect/certs
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/veiculo
+    username: veiculo_adm
+    password: ead@2025
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc:
+        lob.non-contextual-creation: true
+    properties:
+      hibernate:
+        show_sql: true
