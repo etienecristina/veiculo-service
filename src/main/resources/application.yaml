@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 spring:
   security:
@@ -11,8 +11,8 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/veiculo
-    username: veiculo_adm
-    password: ead@2025
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
