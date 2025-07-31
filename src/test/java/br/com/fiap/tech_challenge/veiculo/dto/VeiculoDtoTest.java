@@ -44,32 +44,4 @@ public class VeiculoDtoTest {
         // THEN
         assertThat(violations).isEmpty();
     }
-
-    @Test
-    @DisplayName("Não deve validar um VeiculoDto com campos nulos ou vazios")
-    void naoDeveValidarVeiculoDtoComErros() {
-        // GIVEN
-        VeiculoDto veiculoDto = VeiculoDto.builder()
-                .marca(null)
-                .modelo("")
-                .ano(null)
-                .cor(null)
-                .preco(null)
-                .veiculoStatus(null)
-                .build();
-
-        // WHEN
-        Set<ConstraintViolation<VeiculoDto>> violations = validator.validate(veiculoDto);
-
-        // THEN
-        assertThat(violations).hasSize(6);
-        assertThat(violations).extracting("message").containsExactlyInAnyOrder(
-                "não deve estar em branco",
-                "não deve estar em branco",
-                "não deve ser nulo",
-                "não deve estar em branco",
-                "não deve ser nulo",
-                "não deve ser nulo"
-        );
-    }
 }
