@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -84,7 +85,7 @@ public class VeiculoController {
         return ResponseEntity.status(HttpStatus.OK).body(veiculoService.salvarVeiculo(veiculoModel));
     }
 
-    @PatchMapping("/{veiculoId}/vender")
+    @PutMapping("/{veiculoId}/vender")
     public ResponseEntity<Object> venderVeiculo(@PathVariable("veiculoId") UUID veiculoId){
         var veiculoOptional = veiculoService.buscarVeiculoPorId(veiculoId);
 

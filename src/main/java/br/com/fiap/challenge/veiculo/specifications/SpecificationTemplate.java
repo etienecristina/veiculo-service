@@ -8,6 +8,8 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class SpecificationTemplate {
 
+    public SpecificationTemplate() {}
+
     @And({
             @Spec(path = "marca", spec = EqualIgnoreCase.class),
             @Spec(path = "modelo", spec = EqualIgnoreCase.class),
@@ -15,6 +17,7 @@ public class SpecificationTemplate {
             @Spec(path = "cor", spec = EqualIgnoreCase.class),
             @Spec(path = "veiculoStatus", spec = EqualIgnoreCase.class)
     })
+
     public interface VeiculoSpec extends Specification<VeiculoModel> {
     }
 }

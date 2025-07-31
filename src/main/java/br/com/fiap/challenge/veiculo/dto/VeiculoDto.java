@@ -3,11 +3,13 @@ package br.com.fiap.challenge.veiculo.dto;
 import br.com.fiap.challenge.veiculo.enums.VeiculoStatus;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
 public class VeiculoDto {
     @NotBlank
     private String marca;
