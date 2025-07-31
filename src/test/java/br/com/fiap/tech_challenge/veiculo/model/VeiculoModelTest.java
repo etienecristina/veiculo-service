@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class VeiculoModelTest {
+class VeiculoModelTest {
 
 
     @Test

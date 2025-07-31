@@ -280,7 +280,6 @@ class VeiculoControllerTest {
 
         verify(veiculoService, times(1)).buscarVeiculoPorId(veiculoId);
         verify(veiculoService, times(1)).salvarVeiculo(any(VeiculoModel.class));
-        // Verifica que o status foi alterado para VENDIDO antes de salvar
         verify(veiculoService).salvarVeiculo(argThat(v -> v.getVeiculoStatus() == VeiculoStatus.VENDIDO));
     }
 
