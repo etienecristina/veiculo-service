@@ -28,3 +28,5 @@ jobs:
 
       - name: Executar testes e verificar cobertura de código
         run: mvn verify -X
+        env:
+          LANG: pt_BR.UTF-8
