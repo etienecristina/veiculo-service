@@ -26,7 +26,5 @@ jobs:
       - name: Instalar dependências e compilar
         run: mvn clean install
 
-      - name: Executar testes e verificar cobertura de código
-        run: mvn verify -X
-        env:
-          LANG: pt_BR.UTF-8
+      - name: Executar testes
+        run: mvn verify
