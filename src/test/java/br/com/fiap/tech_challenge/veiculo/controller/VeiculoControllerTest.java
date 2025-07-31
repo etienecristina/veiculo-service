@@ -273,7 +273,7 @@ class VeiculoControllerTest {
         when(veiculoService.salvarVeiculo(any(VeiculoModel.class))).thenReturn(veiculoModel); // Não é o foco, mas necessário
 
         // THEN
-        mockMvc.perform(patch("/veiculos/{veiculoId}/vender", veiculoId)
+        mockMvc.perform(put("/veiculos/{veiculoId}/vender", veiculoId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string("Veículo atualizado para vendido com sucesso."));
@@ -294,7 +294,7 @@ class VeiculoControllerTest {
         when(veiculoService.buscarVeiculoPorId(veiculoId)).thenReturn(Optional.empty());
 
         // THEN
-        mockMvc.perform(patch("/veiculos/{veiculoId}/vender", veiculoId)
+        mockMvc.perform(put("/veiculos/{veiculoId}/vender", veiculoId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
                 .andExpect(content().string("Veículo não cadastrado"));
@@ -316,7 +316,7 @@ class VeiculoControllerTest {
         when(veiculoService.buscarVeiculoPorId(veiculoId)).thenReturn(Optional.of(veiculoModel));
 
         // THEN
-        mockMvc.perform(patch("/veiculos/{veiculoId}/vender", veiculoId)
+        mockMvc.perform(put("/veiculos/{veiculoId}/vender", veiculoId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isConflict())
                 .andExpect(content().string("Esse veículo não está disponível."));
