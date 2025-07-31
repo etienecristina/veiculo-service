@@ -27,4 +27,4 @@ jobs:
         run: mvn clean install
 
       - name: Executar testes e verificar cobertura de código
-        run: mvn verify
+        run: mvn verify -X
