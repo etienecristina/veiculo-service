@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public class VeiculoModelTest {
 
+
     @Test
     @DisplayName("Deve criar e acessar todos os atributos de VeiculoModel")
     void deveCriarEValidarAtributosDeVeiculoModel() {
